@@ -1,0 +1,28 @@
+{
+  "name": "fullscreen-videobg",
+  "version": "1.0.0",
+  "description": "Full screen html5 video backgrounds with mobile fallback in pure JavaScript",
+  "main": "poster.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aswin-s/fullscreen-videobg.git"
+  },
+  "keywords": [
+    "video",
+    "background",
+    "html5"
+  ],
+  "author": "aswin-s",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aswin-s/fullscreen-videobg/issues"
+  },
+  "homepage": "https://github.com/aswin-s/fullscreen-videobg#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0"
+  }
+}
