@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: none;
+            box-sizing: border-box
+        }
+
+        .page {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            -webkit-transition: 2s all linear;
+            -moz-transition: 2s all linear;
+            -o-transition: 2s all linear;
+            transition: 2s all linear;
+            -webkit-filter: blur(20px);
+            -moz-filter: blur(20px);
+            -o-filter: blur(20px);
+            -ms-filter: blur(20px);
+            filter: blur(20px);
+            transform: scale(1.1);
+        }
+
+        .foreground {
+            position: relative;
+        }
+
+        .video-bg.load-complete {
+            filter: blur(0);
+            transform: scale(1);
+        }
+
+        .foreground {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: white;
+            background: rgba(0, 0, 0, 0.2);
+            line-height: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            margin-top: 50vh;
+            transform: translateY(-100px);
+        }
+
+        a {
+            border-radius: 5px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page">
+        <div class="background">
+            <video class="video-bg" poster="posters/thumbnail.jpg" loop muted>
+                <source data-src="video.webm" type="video/webm" />
+                <source data-src="video.mp4" type="video/mp4" />
+                <!-- Responsive poster images -->
+                <poster-source media="(min-width:1200px)" srcset="posters/poster.jpg, posters/poster-2x.jpg 2x" />
+                <poster-source media="(min-width:800px)" srcset="posters/poster-medium.jpg, posters/poster-medium-2x.jpg 2x" />
+                <poster-source srcset="posters/poster-small.jpg, posters/poster-small-2x.jpg 2x" />
+            </video>
+        </div>
+        <div class="foreground">
+            <h1>Full Screen Video Background</h1>
+            <a href="#">http://github.com/aswin-s/fs-video-bg</a>
+        </div>
+    </section>
+</body>
+<script src="/dist/fs-video-bg.js">
+</script>
+
+</html>
