@@ -7,27 +7,27 @@
               setVideoSource(videos[i]);
               addListeners(videos[i]);
               setPosterImage(videos[i]);
-              window.addEventListener('resize', function(video) {
-                  return function() {
-                      setPosterImage(video);
-                  }
-              }(videos[i]));
+
           }
       });
 
       // Set source urls
       function setVideoSource(video) {
           var sources = video.getElementsByTagName('source');
-          // Set the source urls
-          for (var j = 0; j < sources.length; j++) {
-              var source = sources[j];
-              if (source.dataset.src != undefined) {
-                  var newSource = document.createElement("source");
-                  newSource.setAttribute("src", source.dataset.src);
-                  video.appendChild(newSource);
-              }
+          if (window.Modernizr && window.Modernizr.on) {
+              window.Modernizr.on('videoautoplay', function() {
+                  for (var j = 0; j < sources.length; j++) {
+                      var source = sources[j];
+                      if (source.dataset.src !== undefined) {
+                          var newSource = document.createElement("source");
+                          newSource.setAttribute("src", source.dataset.src);
+                          video.appendChild(newSource);
+                      }
+                  }
+              });
           }
       }
+
       // Add event listeners
       function addListeners(video) {
           if (video.readyState == 4) {
@@ -73,8 +73,16 @@
                       }
                   }
               }
-
           }
+
+          // Load poster image
+          var posterImage = new Image();
+          posterImage.setAttribute("src", url);
+          posterImage.addEventListener('load', function() {
+              video.classList.add('poster-loaded');
+          })
+
+          // Replace existing poster image
           video.setAttribute("poster", url);
       }
   }(window));
