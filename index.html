@@ -46,7 +46,8 @@
             position: relative;
         }
 
-        .video-bg.load-complete {
+        .video-bg.load-complete,
+        .video-bg.poster-loaded {
             filter: blur(0);
             transform: scale(1);
         }
@@ -70,6 +71,7 @@
             color: white;
         }
     </style>
+    <script src="vendor/modernizr.min.js"></script>
 </head>
 
 <body>
