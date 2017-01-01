@@ -1,6 +1,9 @@
-# Responsive full screen video background with mobile fallback
+# Responsive full screen video background
 
 * Pure JavaScript
-* Fallbacks to image on browsers which doesn't support video autoplay
+* Async video loading
 * Support for responsive poster images
+* Image fallback for mobile devices
+* Just 1KB :)
+
 
